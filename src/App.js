@@ -1,26 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from 'react-router-dom'
 
-function App() {
+import Explore from './Explore'
+import Me from './Me'
+import UserPage from './UserPage';
+import EventCreation from './EventCreation'
+import EventComment from './EventComment'
+import CommentCreate from './CommentCreate';
+import CommentEdit from './CommentEdit';
+import CommentReply from './CommentReply';
+
+function App () {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <Switch>
+        <Route path='/explore' exact component={Explore} />
+        <Route path='/me' exact component={Me} />
+        <Route path='/user/:uid' exact component={UserPage} />
+        <Route path='/event/new' exact component={EventCreation} />
+        <Route path='/event/:id/comment' exact component={EventComment} />
+        <Route
+          path='/event/:id/comment/:cid/edit'
+          exact
+          component={CommentEdit}
+        />
+        <Route
+          path='/event/:id/comment/:cid/reply'
+          exact
+          component={CommentReply}
+        />
+        <Route path='/event/:id/comment/new' exact component={CommentCreate} />
+        <Redirect to='/explore' />
+      </Switch>
+    </Router>
+  )
 }
 
-export default App;
+export default App
