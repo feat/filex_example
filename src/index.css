@@ -11,3 +11,79 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* 布局 */
+.pl_12,
+.px_12 {
+  padding-left: 12px;
+}
+
+.pr_12,
+.px_12 {
+  padding-right: 12px;
+}
+
+.pt_12,
+.py_12 {
+  padding-top: 12px;
+}
+
+.pb_12,
+.py_12 {
+  padding-bottom: 12px;
+}
+
+.pt_16,
+.py_16 {
+  padding-top: 16px;
+}
+
+.pb_16,
+.py_16 {
+  padding-bottom: 16px;
+}
+
+.pl_16,
+.px_16 {
+  padding-left: 16px;
+}
+
+.pr_16,
+.px_16 {
+  padding-right: 16px;
+}
+
+/* 页面 */
+.App {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+.App__content {
+  flex: 1;
+  overflow: auto;
+}
+.App__header,
+.App__footer {
+  flex-shrink: 0;
+}
+
+.App__header {
+  background-color: white;
+  box-shadow: 0 0 2px rgba(0, 0, 0, .3);
+  z-index: 10;
+  position: relative;
+}
+
+.PageHeader {
+  height:56px;
+  display: flex;
+  align-items: center;
+}
+
+.PageTitle {
+  margin-top: 0;
+  margin-bottom: 0;
+}
