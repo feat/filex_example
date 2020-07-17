@@ -81,9 +81,45 @@ code {
   height:56px;
   display: flex;
   align-items: center;
+  position: relative;
+}
+
+.PageHeader__center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .PageTitle {
   margin-top: 0;
   margin-bottom: 0;
+}
+
+.button {
+  outline: none;
+  padding: 5px 10px;
+  color: #333;
+  border: 1px solid #333;
+  border-radius: 6px;
+  background: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.button_sm {
+  padding: 3px 6px;
+}
+
+.button_merge {
+  border-color: transparent;
+}
+
+.button_dashed {
+  border-style: dashed;
+}
+
+.button_block {
+  display: block;
+  width: 100%;
 }

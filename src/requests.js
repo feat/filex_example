@@ -34,3 +34,15 @@ export const fetchPublicFeed = async (params) => {
     const res = await fetch(url).then(resHelper);
     return res;
 }
+
+export const fetchUserEvents = async (uid, params) => {
+    const baseURL = `${API_ENDPOINT}/api/xfile/event/${uid}/view-list/`;
+    const query = params ? stringify(params) : '';
+    const url = query ? `${baseURL}?${query}` : baseURL;
+    const headers = {
+        Accept: 'application/json'
+    }
+    return await fetch(url, {
+        headers
+    }).then(resHelper);
+}

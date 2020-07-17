@@ -1,0 +1,10 @@
+.EventPlates {
+    padding-top: 4px;
+}
+.EventPlates__item {
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    margin-right: 4px;
+    background-size: cover;
+}
