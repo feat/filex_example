@@ -1,9 +1,8 @@
 import React from 'react';
+import AuthRequiredHint from './AuthRequiredHint'
 function Me() {
     return (
-        <div>
-            Me
-        </div>
+        <AuthRequiredHint />
     )
 }
 

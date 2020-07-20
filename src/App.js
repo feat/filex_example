@@ -14,6 +14,7 @@ import EventComment from './EventComment'
 import CommentCreate from './CommentCreate';
 import CommentEdit from './CommentEdit';
 import CommentReply from './CommentReply';
+import Authorize from './Authorize'
 
 function App () {
   return (
@@ -35,6 +36,7 @@ function App () {
           component={CommentReply}
         />
         <Route path='/event/:id/comment/new' exact component={CommentCreate} />
+        <Route path='/authorize' exact component={Authorize} />
         <Redirect to='/explore' />
       </Switch>
     </Router>
