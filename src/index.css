@@ -156,3 +156,30 @@ code {
   border-radius: 50%;
   margin-right: 8px;
 }
+
+.Form {
+  padding-left: 12px;
+}
+.FormItem {
+  padding: 5px 12px 5px 3px;
+  border-bottom: 1px dashed #ccc;
+}
+.FormLabel {
+  font-size: 14px;
+  display: block;
+  margin-bottom: 5px;
+}
+.FormInput {
+  display: block;
+  width: 100%;
+  border: none;
+  background: #f3f3f3;
+  font-size: 16px;
+  padding: 3px;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+textarea.FormInput {
+  min-height: 3em;
+}

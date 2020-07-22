@@ -93,6 +93,13 @@ function EventList (props) {
                 data={item} 
                 showUserInfo={showUserInfo}
                 key={item.id} 
+                onDeleted={(data) => {
+                  const filtered = state.items.filter((item) => item.id !== data.id);
+                  setState({
+                    ...state, 
+                    items: filtered
+                  })
+                }}
               />
             ))}
       </InfiniteScroll>

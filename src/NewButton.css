@@ -1,0 +1,31 @@
+.NewButton {
+    position: fixed;
+    z-index: 10;
+    bottom: 64px;
+    right: 24px;
+    background-color: #333;
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 24px;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, .3);
+    transition: .3s ease all;
+}
+.NewButton:active {
+    transform: scale(0.95);
+}
+
+.NewButton::before,
+.NewButton::after {
+    content: '';
+    position: absolute;
+    top: calc(50% - 1.5px);
+    left: calc(50% - 13px);
+    width: 26px;
+    height: 3px;
+    background-color: white;
+}
+
+.NewButton::after {
+    transform: rotate(90deg);
+}

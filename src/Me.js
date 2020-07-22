@@ -4,8 +4,9 @@ import { AuthInfo } from './AuthInfoProvider'
 import AuthRequiredHint from './AuthRequiredHint'
 import BottomBar from './BottomBar';
 import EventList from './EventList';
+import NewButton from './NewButton'
 
-function Me() {
+function Me(props) {
     const { state, dispatch } = useContext(AuthInfo);
     const handleListRequest = useCallback((pagination) => {
         if (!state.token) {
@@ -43,6 +44,11 @@ function Me() {
                 <EventList 
                     request={handleListRequest}
                     showUserInfo={false}
+                />
+                <NewButton 
+                    onClick={() => {
+                        props.history.push('/event/new');
+                    }}
                 />
             </div>
             <div className="App__footer">

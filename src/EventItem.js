@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import EventPlates from './EventPlates'
+import { AuthInfo } from './AuthInfoProvider';
 import './EventItem.css'
+import { deleteEvent } from './requests';
 
 function EventItem (props) {
   const { data, showUserInfo } = props
+  const { state: { token, currentUser } } = useContext(AuthInfo);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const canDelete = currentUser && currentUser.uid === data.user.uid;
 
   return (
     <div className='EventItem'>
@@ -49,6 +54,25 @@ function EventItem (props) {
           {data.comment_count !== undefined ? `评论(${data.comment_count})` : '评论'}
         </Link>
       </div>
+      {canDelete && (
+        <button 
+          className='EventItem__deleteBtn button button_dashed button_sm'
+          disabled={isDeleting}
+          onClick={() => {
+            if (window.confirm('确定删除事件？')) {
+              setIsDeleting(true);
+              deleteEvent(data.id, token).then(() => {
+                props.onDeleted(data, props.index);
+              }).catch((err) => {
+                alert(err.message);
+                setIsDeleting(false);
+              })
+            }
+          }}
+        >
+          &times;
+        </button>
+      )}
     </div>
   )
 }
