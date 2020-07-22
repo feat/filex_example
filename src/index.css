@@ -82,6 +82,7 @@ code {
   display: flex;
   align-items: center;
   position: relative;
+  justify-content: space-between;
 }
 
 .PageHeader__center {
@@ -143,4 +144,15 @@ code {
   padding-top: 8px;
   padding-bottom: 8px;
   text-align: center;
+}
+
+.AvatarStamp {
+  display: flex;
+  align-items: center;
+}
+.AvatarStamp__avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-right: 8px;
 }

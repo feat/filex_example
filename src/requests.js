@@ -46,3 +46,27 @@ export const fetchUserEvents = async (uid, params) => {
         headers
     }).then(resHelper);
 }
+
+export const fetchUserBasicInfo = async (token) => {
+    const url = `${API_ENDPOINT}/api/user/basic-info/`;
+    return await fetch(url, {
+        method: 'GET',
+        headers: {
+            Authorization: `${token.token_type} ${token.access_token}`
+        }
+    }).then(resHelper);
+}
+
+export const fetchEventList = async (params, token) => {
+    const query = params ? stringify(params) : '';
+    const baseURL = `${API_ENDPOINT}/api/xfile/event/`;
+    const url = query ? `${baseURL}?${query}` : baseURL;
+    const headers = {
+        Accept: 'application/json',
+        Authorization: `${token.token_type} ${token.access_token}`
+    }
+    
+    return await fetch(url, {
+        headers
+    }).then(resHelper);
+}
