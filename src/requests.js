@@ -115,3 +115,85 @@ export const deleteEvent = async (id, token) => {
     }
   }).then(resHelper)
 }
+
+// define by featapi, ref: http://new.featapi.com/api-docs/activity-api-reference/#Comment_TargetType
+const COMMENT_TARGET_TYPE_EVENT = 300; 
+export const fetchEventComments = async (id, params) => {
+  const baseURL = `${API_ENDPOINT}/api/activity/comment/comment-list/`;
+    const query = {
+        object_id: id,
+        ...params,
+        target_type: COMMENT_TARGET_TYPE_EVENT // 
+    }
+    const url = `${baseURL}?${stringify(query)}`;
+    return await fetch(url, {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+      }
+    }).then(resHelper);
+}
+
+export const createComment = async (data, token) => {
+  const url = `${API_ENDPOINT}/api/activity/comment/`;
+  const headers = {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      Authorization: `${token.token_type} ${token.access_token}`,
+  }
+  return fetch(url, {
+      method: 'POST',
+      body: JSON.stringify({
+          object_id: data.eventId,
+          target_type: COMMENT_TARGET_TYPE_EVENT,
+          content: data.content
+      }),
+      headers
+  }).then(resHelper)
+}
+
+export const updateComment = async (id, data, token) => {
+  const url = `${API_ENDPOINT}/api/activity/comment/${id}/`;
+  const headers = {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      Authorization: `${token.token_type} ${token.access_token}`,
+  }
+  return fetch(url, {
+      method: 'PATCH',
+      body: JSON.stringify(data),
+      headers
+  }).then(resHelper)
+}
+
+export const deleteComment = async (id, token) => {
+  const url = `${API_ENDPOINT}/api/activity/comment/${id}/`;
+  const headers = {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      Authorization: `${token.token_type} ${token.access_token}`,
+  }
+  return fetch(url, {
+      method: 'DELETE',
+      headers
+  }).then(resHelper)
+}
+
+
+export const replyComment = async (id, data, token) => {
+  const url = `${API_ENDPOINT}/api/activity/comment/${id}/reply/`;
+  const headers = {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      Authorization: `${token.token_type} ${token.access_token}`,
+  }
+  return fetch(url, {
+      method: 'POST',
+      body: JSON.stringify({
+          content: data.content,
+          object_id: data.eventId,
+          target_type: COMMENT_TARGET_TYPE_EVENT,
+      }),
+      headers
+  }).then(resHelper)
+}

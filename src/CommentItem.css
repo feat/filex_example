@@ -1,0 +1,37 @@
+.CommentItem {
+    background-color: white;
+    padding-left: 16px;
+    padding-bottom: 3px;
+}
+.CommentItem_root {
+    padding-top: 8px;
+    padding-right: 16px;
+    margin-bottom: 16px;
+}
+
+.Comment__userAvatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+}
+
+.Comment__header {
+    display: flex;
+    align-items: center;
+}
+.Comment__username {
+    margin-left: 8px;
+}
+.Comment__date {
+    color: #666;
+    font-size: 14px;
+    margin-left: 8px;
+}
+.Comment__main {
+    display: flex;
+}
+.Comment__content {
+    flex: 1;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
