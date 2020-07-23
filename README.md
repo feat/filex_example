@@ -1,68 +1,56 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React File-X Demo
 
-## Available Scripts
+[使用 React 制作 File-X 客户端系列教程](http://new.featapi.com/guides/tutorials/file-x-demo/) 的代码仓库
 
-In the project directory, you can run:
+## 项目目的
 
-### `npm start`
+- 演示 File-X 模块的功能
+- 指引入门开发者开发一个简单的单页面应用
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 功能点
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- 查阅公共事件流
+- 查阅用户事件列表
+- OAuth 2.0 implicit 授权流程
+- 查看当前用户的事件列表
+- 创建/发布事件
+- 删除事件
+- 添加、修改、删除、回复评论
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 本地开发
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. 拉去仓库
+   
+```bash
+$ git clone https://github.com/feat/filex_example.git
+```
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+2. 安装依赖
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+$ npm install
+```
 
-### `npm run eject`
+3. 在 feat.com 上注册应用，可参考：[OAuth 2.0 Implicit Grant Type - 创建 OAuth 应用](http://new.featapi.com/guides/tutorials/file-x-demo-oauth-2-0-implicit-grant-type/#%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7%E6%8E%88%E6%9D%83%E7%9A%84%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C_%E2%80%94_%E5%88%9B%E5%BB%BAOAuth%E5%BA%94%E7%94%A8)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+4. 创建 `.env.local` 文件
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+$ cp .env.example .env.local
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+在 `.env.local` 中，填入你的 Feat Oauth 应用的 Client ID。
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+5. 启动项目
 
-## Learn More
+```bash
+$ npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**注意** 注意通过局域网地址进行访问。否则，授权过程中会出现 `403` 错误
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 参与贡献
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+如果发现代码中有不对的地方，欢迎创建 issue 或者直接修改代码后提交 pull request 。谢谢
